@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chatkeep Sync</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="head">
+    <h1>Chatkeep Sync</h1>
+    <p class="sub">A copy of each chat is saved to <span class="folder-path" id="folder-path">Downloads/Chatkeep</span>. Opening a site saves what changed.</p>
+  </header>
+
+  <main id="services" class="services"></main>
+
+  <section class="notes" id="notes" hidden></section>
+
+  <details class="settings" id="settings">
+    <summary>Settings</summary>
+    <form id="settings-form">
+      <label class="field">
+        <span>Folder inside Downloads</span>
+        <input type="text" name="folder" id="folder" maxlength="80" autocomplete="off" spellcheck="false">
+      </label>
+      <label class="check">
+        <input type="checkbox" name="autoSync" id="autoSync">
+        <span>Save automatically when I open a site</span>
+      </label>
+      <label class="field inline">
+        <span>but not more often than every</span>
+        <input type="number" name="minGapMinutes" id="minGapMinutes" min="0" max="1440" step="1"> <span>minutes</span>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="saveJson" id="saveJson">
+        <span>Also save each chat as JSON</span>
+      </label>
+      <div class="row">
+        <button type="submit" class="btn">Save settings</button>
+        <span class="saved" id="saved" hidden>Saved</span>
+      </div>
+    </form>
+  </details>
+
+  <footer class="foot">
+    <button type="button" class="link" id="open-folder">Open Downloads folder</button>
+    <a class="link" href="https://github.com/lnr-7/chatkeep-sync" target="_blank" rel="noopener">Help</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

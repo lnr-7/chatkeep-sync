@@ -1,0 +1,11 @@
+{
+  "name": "chatkeep-sync",
+  "version": "1.0.0",
+  "description": "Browser extension that keeps a local Markdown copy of your Claude and ChatGPT chats. Nothing leaves your computer.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  }
+}

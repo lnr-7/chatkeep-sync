@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Chatkeep Sync",
+  "version": "1.0.0",
+  "description": "Keeps a local Markdown copy of your Claude and ChatGPT chats. Open the site, and whatever changed is saved to your Downloads. Nothing leaves your computer.",
+  "permissions": ["storage", "downloads"],
+  "host_permissions": ["https://claude.ai/*", "https://chatgpt.com/*", "https://chat.openai.com/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["adapters/shared.js", "adapters/claude.js", "content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["adapters/shared.js", "adapters/chatgpt.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Chatkeep Sync",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
